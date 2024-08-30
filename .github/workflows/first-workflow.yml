@@ -6,6 +6,8 @@ jobs:
     first_job:
         runs-on: ubuntu-22.04
         steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4 # using checkout action from Marketplace
             - name: Print message
               run: echo "This is the first workflow"
             - name: List files
