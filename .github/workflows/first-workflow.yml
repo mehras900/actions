@@ -1,0 +1,14 @@
+name: First Test Workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Print message
+              run: echo "This is the first workflow"
+            - name: List files
+              run: ls -lrth
+            - name: Read file
+              run: cat README.md  
