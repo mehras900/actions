@@ -17,7 +17,7 @@ jobs:
               run: sudo apt-get install -y cowsay       
 
             - name: Generate ASCII
-              run: cowsay -f dog 'Woof woof! I can bite... :p' >> generate_ascii.txt
+              run: cowsay -f cat 'Meow! I can snap on you... :p' >> generate_ascii.txt
               
             - name: Print ascii file
               run: cat generate_ascii.txt 
