@@ -14,10 +14,13 @@ jobs:
                    ls -lart
                    cat README.md
             - name: Install cowsay binary
-              run: apt-get install -y cowsay       
+              run: sudo apt-get install -y cowsay       
 
             - name: Generate ASCII
               run: cowsay -f dog 'Woof woof! I can bite... :p' >> generate_ascii.txt
               
             - name: Print ascii file
               run: cat generate_ascii.txt 
+
+            - name: List all repo files in the runner
+              run: ls -lart  
