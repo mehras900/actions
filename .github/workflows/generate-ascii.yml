@@ -11,6 +11,9 @@ jobs:
 
             - name: List repo files
               run: ls -ltra
+
+            - name: Granting permissions to script
+              run: sudo chmod +x ascii-gen.sh
               
             - name: Executing Shell script
               run: ./ascii-gen.sh
