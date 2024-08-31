@@ -1,24 +1,38 @@
 name: Matrix Workflow 
 
-on: [workflow_dispatch, push]
+on: [workflow_dispatch]
 
-# Test 1 without any change
+# # Test 1 without any change
+# jobs:
+#     deploy_on_ubuntu:
+#         runs-on: ubuntu-22.04
+#         steps:
+#             - name: Print docker info
+#               run: docker info
+#             - name: run docker container
+#               run: docker run -d hello-world
+
+            
+#     deploy_on_windows:
+#         runs-on: windows-latest
+#         steps: 
+#             - name: Print docker info
+#               run: docker info
+#             - name: run docker container
+#               run: docker run -d hello-world
+
+# Test 2 with matrix strategy
 jobs:
-    deploy_on_ubuntu:
-        runs-on: ubuntu-22.04
+    deploy_on_os:
+        strategy:
+          matrix:
+            os: [ubuntu-latest, ubuntu-22.04,  windows-latest]
+            image: [hello-world, alpine]
+        runs-on: ${{ matrix.os }}    
         steps:
             - name: Print docker info
               run: docker info
-            - name: run docker container
-              run: docker run -d hello-world
-
-            
-    deploy_on_windows:
-        runs-on: windows-latest
-        steps: 
-            - name: Print docker info
-              run: docker info
-            - name: run docker container
+            - name: run docker container with ${{ matrix.image }} image on ${{ matrix.os }} OS
               run: docker run -d hello-world
 
 
