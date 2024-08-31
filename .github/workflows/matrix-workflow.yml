@@ -21,13 +21,22 @@ on: [workflow_dispatch]
 #             - name: run docker container
 #               run: docker run -d hello-world
 
-# Test 2 with matrix strategy
+# Test 3 with include/exclude flags and fail-fast
 jobs:
     deploy_on_os:
         strategy:
+          fail-fast: false
           matrix:
             os: [ubuntu-latest, ubuntu-22.04,  windows-latest]
             image: [hello-world, alpine]
+            exclude:
+              - image: alpine
+                os: windows-latest
+            include:
+              - image: amd64/alpine
+                os: ubuntu-22.04
+              - image: ttly # false image, this is to test fail-fast flag.
+                os: ubuntu-latest  
         runs-on: ${{ matrix.os }}    
         steps:
             - name: Print docker info
