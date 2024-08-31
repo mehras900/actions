@@ -20,6 +20,8 @@ jobs:
     deploy:
         needs: first_job
         runs-on: ubuntu-latest
+        concurrency:
+            group: dev-concurrency-test
         steps: 
             - name: run docker
               run: |
