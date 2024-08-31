@@ -1,4 +1,4 @@
-name: Workflow Dispatch
+name: timeout test
 
 on: [workflow_dispatch, push]
 
@@ -17,4 +17,8 @@ jobs:
 
             - name: Executing Shell script
               run: ./ascii-gen.sh
+
+            - name: Testing github actions timeout
+              timeout: 1 # this what we are testing in this workflow
+              run: sleep 60000   
               
