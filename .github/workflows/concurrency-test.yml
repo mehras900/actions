@@ -21,7 +21,8 @@ jobs:
         needs: first_job
         runs-on: ubuntu-latest
         concurrency:
-            group: dev-concurrency-test
+            group: dev-concurrency-test # Let's if we trigger a job manually and then trigger another job after 2-3 sec, it will be in pending state, but if trigger the third job again after 2-3s since the second job was in pending it will get cancelled with message like "Canceling since a higher priority waiting request for 'dev-concurrency-test' exists"
+            cancel-in-progress: true
         steps: 
             - name: run docker
               run: |
