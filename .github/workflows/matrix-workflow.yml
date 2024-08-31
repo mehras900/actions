@@ -1,0 +1,25 @@
+name: Matrix Workflow 
+
+on: [workflow_dispatch, push]
+
+# Test 1 without any change
+jobs:
+    deploy_on_ubuntu:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Print docker info
+              run: docker info
+            - name: run docker container
+              run: docker run -d hello-world
+
+            
+    deploy_on_windows:
+        runs-on: windows-latest
+        steps: 
+            - name: Print docker info
+              run: docker info
+            - name: run docker container
+              run: docker run -d hello-world
+
+
+              
