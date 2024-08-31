@@ -1,4 +1,4 @@
-name: Workflow Dispatch
+name: Concurrency Workflow 
 
 on: [workflow_dispatch, push]
 
@@ -17,4 +17,7 @@ jobs:
 
             - name: Executing Shell script
               run: ./ascii-gen.sh
+            
+            - name: sleep for few seconds
+              run: sleep 120
               
