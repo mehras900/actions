@@ -19,6 +19,6 @@ jobs:
               run: ./ascii-gen.sh
 
             - name: Testing github actions timeout
-              timeout: 1 # this what we are testing in this workflow
+              timeout-minutes: 1 # this what we are testing in this workflow
               run: sleep 60000   
               
