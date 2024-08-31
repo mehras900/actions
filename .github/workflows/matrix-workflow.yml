@@ -42,7 +42,7 @@ jobs:
             - name: Print docker info
               run: docker info
             - name: run docker container with ${{ matrix.image }} image on ${{ matrix.os }} OS
-              run: docker run -d hello-world
+              run: docker run -d ${{ matrix.image }}
 
 
               
