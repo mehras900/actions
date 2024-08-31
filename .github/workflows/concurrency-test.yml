@@ -27,6 +27,6 @@ jobs:
             - name: run docker
               run: |
                 docker run -d hello-world
-                sleep 420
+                sleep 60
 
               
