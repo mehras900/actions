@@ -17,12 +17,11 @@ on:
         - event-that-triggers-workflows.yml
     branches: 
         - main
-        - feature/*
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps: 
             - name: run a command
-              run: echo this workflow/job/step is executed for event type - ${{ github.event_name }} & ${{ github.event }}
+              run: echo this workflow/job/step is executed for event type - ${{ github.event_name }}
               
