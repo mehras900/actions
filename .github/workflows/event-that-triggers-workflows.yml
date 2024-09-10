@@ -14,7 +14,7 @@ on:
         - closed
     paths-ignore: 
         - README.md
-        - event-that-triggers-workflows.yml
+        - .github/workflows/event-that-triggers-workflows.yml
     branches: 
         - main
 
