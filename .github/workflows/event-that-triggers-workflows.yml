@@ -5,7 +5,8 @@ on:
   push:
     branches:
         - main
-        - '!feature/*'
+    branches-ignore:     
+        - feature/*
   pull_request: 
     types: 
         - opened
