@@ -14,8 +14,10 @@ on:
         - closed
     paths-ignore: 
         - README.md
+        - event-that-triggers-workflows.yml
     branches: 
         - main
+        - feature/*
 
 jobs:
     deploy:
